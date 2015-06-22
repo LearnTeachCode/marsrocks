@@ -1,49 +1,34 @@
-# Transit app
+# Mars Rocks app
 
-[setup computer](https://gist.github.com/wykhuh/53a2008fdf56bb4b137d/)
+Our webapp allows users to identify interesting features on Mars using the Mars rover images.
 
-[demo](https://transit-py-staging.herokuapp.com/)
+[Mars Rocks live site](https://marsrocks.herokuapp.com/)
 
 
 ## project setup
 
-We are using Python 2.7.10
+We are using Python 2.7.x., postgres database, and Flask.
+
+Read [computer set](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-setup) to make sure you have the basic requirements installed.
 
 clone repo
 ```
 $ git clone git@github.com:LearnToCodeLA/transit.git
 ```
 
-create virtual environment.
+install packages.
 
-If you don't have virtualenv, see [setup computer](https://gist.github.com/wykhuh/53a2008fdf56bb4b137d/).
-
-```
-$  mkvirtualenv --python=/path/to/python transit
-```
-install packages
-
-Psycopg is a Python adapter for Postgre.
+Flask is a framework to create web apps.
+Psycopg is a Python adapter for Postgres.
 SQLAlchemy is a Python ORM.
 Flask-Migrate is database migration library.
+gunicorn is a server.
 ```
-(transit) $ pip install psycopg2 Flask-SQLAlchemy Flask-Migrate
-```
-
-add project path to enviroment
-
-```
-(transit) $ atom $VIRTUAL_ENV/bin/postactivate
-
-```
-add to postactivate file
-
-```
-cd ~/path/to/your/project
+$ pip install  Flask  psycopg2 Flask-SQLAlchemy Flask-Migrate gunicorn
 ```
 
 launch app
 
 ```
-(transit) $ python app.py
+$ python app.py
 ```
