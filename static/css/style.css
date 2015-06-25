@@ -1,0 +1,10 @@
+.photo-container, .photo-container img {
+  float: left;
+  width: 500px;
+  height: 500px;
+  margin-right: 20px;
+}
+
+.menu-container {
+
+}
