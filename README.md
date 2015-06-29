@@ -11,7 +11,7 @@ We are using Python 2.7.x., postgres database, and Flask.
 
 Read [computer setup](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-setup) to make sure you have the basic requirements installed.
 
-1. install python packages.
+1) install python packages.
 
 Flask is a framework to create web apps.  
 Psycopg is a Python adapter for Postgres.  
@@ -22,7 +22,7 @@ gunicorn is a server.
 $ pip install  Flask  psycopg2 Flask-SQLAlchemy Flask-Migrate gunicorn
 ```
 
-2. download the repo
+2) download the repo
 
 if you have ssh set up
 ```
@@ -34,23 +34,23 @@ if you don't have ssh
 $ git clone https://github.com/LearnToCodeLA/marsrocks.git
 ```
 
-3. change into the directory of the repo
+3) change into the directory of the repo
 
 ```
 $ cd marsrocks
 ```
 
-4. start the server
+4) start the server
 
 ```
 $ python app.py
 ```
 
-5. visit the website
+5) visit the website
 
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://locahost:5000/](http://locahost:5000/)
 
-6. start coding
+6) start coding
 
-Follow the guidelines for out [git workflow](https://github.com/LearnToCodeLA/marsrocks/wiki/Github-workflow).
+Follow the guidelines for our [git workflow](https://github.com/LearnToCodeLA/marsrocks/wiki/Github-workflow).
 
