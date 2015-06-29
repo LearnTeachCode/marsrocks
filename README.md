@@ -13,7 +13,7 @@ Read [computer set](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-set
 
 clone repo
 ```
-$ git clone git@github.com:LearnToCodeLA/transit.git
+$ git clone git@github.com:LearnToCodeLA/marsrocks.git
 ```
 
 install packages.
