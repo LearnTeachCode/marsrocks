@@ -9,7 +9,7 @@ Our webapp allows users to identify interesting features on Mars using the Mars 
 
 We are using Python 2.7.x., postgres database, and Flask.
 
-Read [computer set](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-setup) to make sure you have the basic requirements installed.
+Read [computer setup](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-setup) to make sure you have the basic requirements installed.
 
 install python packages.
 
