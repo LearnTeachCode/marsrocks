@@ -1,6 +1,9 @@
+import os
+
 from flask import Flask,  render_template
 app = Flask(__name__)
-
+app.config.from_object(os.environ['APP_SETTINGS'])
+print '== APP_SETTINGS:', os.environ['APP_SETTINGS']
 
 @app.route('/')
 def index():
@@ -19,4 +22,4 @@ def stats():
     return render_template('stats.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
