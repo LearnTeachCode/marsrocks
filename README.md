@@ -1,9 +1,12 @@
 # Mars Rocks app
 
+
 Our webapp allows users to identify interesting features on Mars using the Mars rover images.
 
 [Mars Rocks live site](https://marsrocks.herokuapp.com/)
 
+
+[![Build Status](https://travis-ci.org/LearnToCodeLA/marsrocks.svg)](https://travis-ci.org/LearnToCodeLA/marsrocks)
 
 ## project setup
 
@@ -25,6 +28,7 @@ $ pip install  Flask  psycopg2 Flask-SQLAlchemy Flask-Migrate gunicorn
 2) download the repo
 
 if you have ssh set up
+
 ```
 $ git clone git@github.com:LearnToCodeLA/marsrocks.git
 ```
@@ -53,4 +57,3 @@ $ python app.py
 6) start coding
 
 Follow the guidelines for our [git workflow](https://github.com/LearnToCodeLA/marsrocks/wiki/Github-workflow).
-
