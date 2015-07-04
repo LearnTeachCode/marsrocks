@@ -1,16 +1,21 @@
 import os
 import unittest
-
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
-from app import app
+from app import app, db
 
 # config
 app.config.from_object(os.environ['APP_SETTINGS'])
 
+# create migration instance
+migrate = Migrate(app, db)
+
 # create manager instance
 manager = Manager(app)
+
+# run migration from the commandline use 'db'
+manager.add_command('db', MigrateCommand)
 
 # adds to ability to run tests using "$ python manage.py test"
 @manager.command

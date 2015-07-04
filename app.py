@@ -1,9 +1,20 @@
 import os
+from flask.ext.bcrypt import Bcrypt
+from flask import Flask, render_template
+from flask.ext.sqlalchemy import SQLAlchemy
 
-from flask import Flask,  render_template
+# create the application object
 app = Flask(__name__)
+
 app.config.from_object(os.environ['APP_SETTINGS'])
 print '== APP_SETTINGS:', os.environ['APP_SETTINGS']
+
+#create SQLAlchemy object
+db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+
+# import models
+from models import *
 
 @app.route('/')
 def index():
