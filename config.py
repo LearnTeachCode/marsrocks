@@ -10,6 +10,9 @@ class TestConfig(BaseConfig):
     DEBUG = True
     TESTING = True
     WTF_CSRF_ENABLED = False
+    # use sqlite in memory
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+    # SQLALCHEMY_DATABASE_URI = 'sqlite:///testing.db'
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True

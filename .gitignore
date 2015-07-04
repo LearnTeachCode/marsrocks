@@ -1,5 +1,7 @@
 # autoenv
 .env
+# sqlite
+.db
 
 ############## Heroku gitignore ##############
 
