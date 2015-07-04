@@ -16,6 +16,9 @@
         <li><a href="{{ url_for('about') }}">About</a></li>
         <li><a href="{{ url_for('stats') }}">Stats</a></li>
         <li><a href="{{ url_for('classify') }}">Classify</a></li>
+        <li><a href="{{ url_for('users.login') }}">Login</a></li>
+        <li><a href="{{ url_for('users.register') }}">Register</a></li>
+
       </ul>
     </nav>
     </div>
@@ -29,7 +32,7 @@
     {% for message in get_flashed_messages() %}
       {{ message }}
     {% endfor %}
-    
+
     {% block content %} {% endblock %}
   </div>
 </body>

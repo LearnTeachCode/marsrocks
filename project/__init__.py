@@ -10,7 +10,6 @@ bcrypt = Bcrypt(app)
 
 # config
 app.config.from_object(os.environ['APP_SETTINGS'])
-print '=== APP_SETTINGS:', os.environ['APP_SETTINGS']
 
 #create SQLAlchemy object
 db = SQLAlchemy(app)

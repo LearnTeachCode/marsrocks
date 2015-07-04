@@ -3,8 +3,8 @@ from flask import flash, redirect, render_template, request, \
 from flask.ext.login import login_user, login_required, logout_user
 
 from .forms import LoginForm, RegisterForm
-from project import db
-from project.models import User, bcrypt
+from project import db, bcrypt
+from project.models import User
 
 # define blueprints
 users_blueprint = Blueprint(
@@ -23,7 +23,7 @@ def login():
         # check if form is valid
         if form.validate_on_submit():
             # look for input user in the db
-            user = User.query.filter_by(name=request.form['username']).first()
+            user = User.query.filter_by(username=request.form['username']).first()
             # authenication. check if user and hash password are in db.
             if user is not None and bcrypt.check_password_hash(
                 user.password, request.form['password']):
@@ -48,17 +48,21 @@ def logout():
 
 @users_blueprint.route('/register', methods=['GET', 'POST'])
 def register():
+    error = None
     form = RegisterForm()
     if form.validate_on_submit():
-        user = User(
-            name=form.username.data,
-            email=form.email.data,
-            password=form.password.data
-        )
-        # add user to db
-        db.session.add(user)
-        db.session.commit()
-        # flask-login creates a session
-        login_user(user)
-        return redirect(url_for('index'))
-    return render_template('register.html', form=form)
+        user = User.query.filter_by(username=request.form['username']).first()
+        if user is None:
+            user = User(
+                username=form.username.data,
+                password=form.password.data
+            )
+            # add user to db
+            db.session.add(user)
+            db.session.commit()
+            # flask-login creates a session
+            login_user(user)
+            return redirect(url_for('index'))
+        else:
+            error = 'Username is already taken'
+    return render_template('register.html', form=form, error=error)
