@@ -45,7 +45,6 @@ class BaseTestCase(TestCase):
         db.create_all()
         db.session.add(User("admin", "password"))
         db.session.commit()
-        db.drop_all()
 
     def tearDown(self):
         db.session.remove()
