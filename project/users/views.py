@@ -30,7 +30,7 @@ def login():
                 # use flask-login to handle session
                 login_user(user)
                 flash('You are logged in')
-                return redirect(url_for('index'))
+                return redirect(url_for('home.index'))
             # if credentials is invalid, rerender the form
             else:
                 error = 'Invalid credentials'
@@ -43,7 +43,7 @@ def logout():
     # logout_user from flask-login
     logout_user()
     flash('You are logged out')
-    return redirect(url_for('index'))
+    return redirect(url_for('home.index'))
 
 
 @users_blueprint.route('/register', methods=['GET', 'POST'])
@@ -62,7 +62,7 @@ def register():
             db.session.commit()
             # flask-login creates a session
             login_user(user)
-            return redirect(url_for('index'))
+            return redirect(url_for('home.index'))
         else:
             error = 'Username is already taken'
     return render_template('register.html', form=form, error=error)
