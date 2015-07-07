@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Mars Rocks</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>Mars Rocks</h1>
+    <nav>
+      <ul class="menu">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('stats') }}">Stats</a></li>
+        <li><a href="{{ url_for('classify') }}">Classify</a></li>
+        <li><a href="{{ url_for('users.login') }}">Login</a></li>
+        <li><a href="{{ url_for('users.register') }}">Register</a></li>
+        <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
+      </ul>
+    </nav>
+    </div>
+  <div>
+    <!-- errors -->
+    {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+
+    <!-- messages -->
+    {% for message in get_flashed_messages() %}
+      {{ message }}
+    {% endfor %}
+
+    {% block content %} {% endblock %}
+  </div>
+</body>
+
+</html>
