@@ -12,9 +12,13 @@ login_manager = LoginManager()
 # register login manager with the app object
 login_manager.init_app(app)
 
-# config
-app.config.from_object(os.environ['APP_SETTINGS'])
-print '== APP_SETTINGS:', os.environ['APP_SETTINGS']
+# use try except to so that newbies don't have to set up environment variables
+try:
+    app.config.from_object(os.environ['APP_SETTINGS'])
+    print '== os APP_SETTINGS:', os.environ['APP_SETTINGS']
+except:
+    app.config.from_object('config.DevelopmentConfig')
+    print '== hardcode config.DevelopmentConfig'
 
 
 

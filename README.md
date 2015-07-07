@@ -10,13 +10,13 @@ Our webapp allows users to identify interesting features on Mars using the Mars 
 
 ## project setup
 
-We are using Python 2.7.x., postgres database, and Flask.
+We are using Python 2.7.x., sqlite3, postgres, and Flask.
 
 Read [computer setup](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-setup) to make sure you have the basic requirements installed.
 
-1) create a postgres database
+1) create a sqlite3 database
 ```
-$ createdb marsrocks
+$ python db_create_users.py
 ```
 
 2) download the repo
@@ -49,23 +49,16 @@ if you get errors during installation, try:
 $ sudo pip install -r requirements.txt
 ```
 
-5) Follow these steps to [set up environment variables](https://github.com/LearnToCodeLA/marsrocks/wiki/setup-environmental-variables,--virtual-environments). If you have autoenv, copy these two lines into .env file. If you have virtualenvwrapper, copy these two lines into the postactivate file.
-
-```
-export APP_SETTINGS="config.DevelopmentConfig"
-export DATABASE_URL="postgresql://localhost/marsrocks"
-```
-
-6) start the server
+5) start the server
 
 ```
 $ python app.py
 ```
 
-7) visit the website
+6) visit the website
 
 [http://127.0.0.1:5000/](http://127.0.0.1:5000/) or [http://locahost:5000/](http://locahost:5000/)
 
-8) start coding
+7) start coding
 
 Follow the guidelines for our [git workflow](https://github.com/LearnToCodeLA/marsrocks/wiki/Github-workflow).

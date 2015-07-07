@@ -9,7 +9,10 @@ app = Flask(__name__)
 bcrypt = Bcrypt(app)
 
 # config
-app.config.from_object(os.environ['APP_SETTINGS'])
-
+try:
+    app.config.from_object(os.environ['APP_SETTINGS'])
+except:
+    app.config.from_object('config.DevelopmentConfig')
+    
 #create SQLAlchemy object
 db = SQLAlchemy(app)

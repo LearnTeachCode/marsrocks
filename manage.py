@@ -6,7 +6,10 @@ from flask.ext.migrate import Migrate, MigrateCommand
 from app import app, db
 
 # config
-app.config.from_object(os.environ['APP_SETTINGS'])
+try:
+    app.config.from_object(os.environ['APP_SETTINGS'])
+except:
+    app.config.from_object('config.DevelopmentConfig')
 
 # create migration instance
 migrate = Migrate(app, db)
