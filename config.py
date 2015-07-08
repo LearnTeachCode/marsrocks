@@ -4,12 +4,6 @@ import os
 class BaseConfig(object):
     DEBUG = False
     SECRET_KEY = 'This is the local insecure secret'
-    try:
-        SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-        print '== os DATABASE_URL:'
-    except:
-        SQLALCHEMY_DATABASE_URI = 'sqlite:///marsrocks.db'
-        print '== sqlite'
 
 
 class TestConfig(BaseConfig):
@@ -24,8 +18,15 @@ class TestConfig(BaseConfig):
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
-
-
+    # devs can customize the database by setting the environment variable
+    try:
+        SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+        print '== os DATABASE_URL:'
+    # default is to use sqlite
+    except:
+        SQLALCHEMY_DATABASE_URI = 'sqlite:///marsrocks.db'
+        print '== sqlite'
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
