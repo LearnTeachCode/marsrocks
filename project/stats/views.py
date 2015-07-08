@@ -6,6 +6,6 @@ stats_blueprint = Blueprint(
     template_folder='templates'
 )
 
-@stats_blueprint.route('/')
+@stats_blueprint.route('/stats')
 def index():
     return render_template('stats.html')

@@ -6,6 +6,6 @@ about_blueprint = Blueprint(
     template_folder='templates'
 )
 
-@about_blueprint.route('/')
+@about_blueprint.route('/about')
 def index():
     return render_template('about.html')

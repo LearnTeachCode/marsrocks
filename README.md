@@ -14,12 +14,8 @@ We are using Python 2.7.x., sqlite3, postgres, and Flask.
 
 Read [computer setup](https://github.com/LearnToCodeLA/marsrocks/wiki/Computer-setup) to make sure you have the basic requirements installed.
 
-1) create a sqlite3 database
-```
-$ python db_create_users.py
-```
 
-2) download the repo
+1) download the repo
 
 if you have ssh set up
 
@@ -32,13 +28,13 @@ if you don't have ssh
 $ git clone https://github.com/LearnToCodeLA/marsrocks.git
 ```
 
-3) change into the directory of the repo
+2) change into the directory of the repo
 
 ```
 $ cd marsrocks
 ```
 
-4) install python packages.
+3) install python packages.
 
 ```
 $ pip install -r requirements.txt
@@ -47,6 +43,11 @@ if you get errors during installation, try:
 
 ```
 $ sudo pip install -r requirements.txt
+```
+
+4) create a sqlite3 database
+```
+$ python db_create_db.py
 ```
 
 5) start the server

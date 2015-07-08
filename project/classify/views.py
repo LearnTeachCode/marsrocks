@@ -6,6 +6,6 @@ classify_blueprint = Blueprint(
     template_folder='templates'
 )
 
-@classify_blueprint.route('/')
+@classify_blueprint.route('/classify')
 def index():
     return render_template('classify.html')
