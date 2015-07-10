@@ -10,14 +10,34 @@
 
   <h3>Features</h3>
 
-  <ul>
-    <li><a href="#">layered rocks</a></li>
-    <li><a href="#">gypsum vein</a></li>
-    <li><a href="#">bright rocks</a></li>
-    <li><a href="#">meteorites</a></li>
-    <li><a href="#">blueberries</a></li>
-    <li><a href="#">wheel wear</a></li>
-  </ul>
+  <form method="POST" action="/classify">
+      {{ form.csrf_token }}
+
+      <p>{{ form.layered_rocks }}
+        <label for="layered_rocks">{{ form.layered_rocks.description }}</label>
+     </p>
+      <p>
+        {{ form.gypsum_vein }}
+        <label for="gypsum_vein">{{ form.gypsum_vein.description }}</label>
+      </p>
+      <p>
+        {{ form.bright_rocks }}
+        <label for="bright_rocks">{{ form.bright_rocks.description }}</label>
+      </p>
+      <p>
+        {{ form.meteorites }}
+        <label for="meteorites">{{ form.meteorites.description }}</label>
+      </p>
+      <p>
+        {{ form.blueberries }}
+        <label for="blueberries">{{ form.blueberries.description }}</label>
+      </p>
+      <p>
+        {{ form.wheel_wear }}
+        <label for="wheel_wear">{{ form.wheel_wear.description }}</label>
+      </p>
+      <input type="submit" value="Submit">
+  </form>
 </div>
 
 {% endblock %}

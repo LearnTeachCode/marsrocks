@@ -51,12 +51,14 @@ class Feature(db.Model):
     __tablename__ = 'features'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
+    slug = db.Column(db.String, nullable=False)
     photo_url = db.Column(db.String, nullable=False)
     classifications = relationship("Classification", backref='feature', lazy='dynamic')
 
-    def __init__(self, name, photo_url):
+    def __init__(self, name, photo_url, slug):
         self.name = name
         self.photo_url = photo_url
+        self.slug = slug
 
     def __repr__(self):
         return '<feature - {}>'.format(self.name)
