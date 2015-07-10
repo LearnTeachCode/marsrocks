@@ -20,6 +20,10 @@
         <li><a href="{{ url_for('users.login') }}">Login</a></li>
         <li><a href="{{ url_for('users.register') }}">Register</a></li>
         <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
+        {% if  current_user.is_authenticated() %}
+          <li>{{ current_user.username }}</li>
+        {% endif %}
+
       </ul>
     </nav>
     </div>
