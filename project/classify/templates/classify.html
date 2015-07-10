@@ -13,6 +13,12 @@
   <form method="POST" action="/classify">
       {{ form.csrf_token }}
 
+      {% if form.layered_rocks.errors %}
+        {% for error in form.layered_rocks.errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      {% endif %}
+
       <p>{{ form.layered_rocks }}
         <label for="layered_rocks">{{ form.layered_rocks.description }}</label>
      </p>

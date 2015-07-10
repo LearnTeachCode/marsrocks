@@ -23,7 +23,7 @@ def index():
     else:
         template = 'classify_static.html'
 
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
         #  loop through the post data
         for field in request.form:
             if field != 'csrf_token':
