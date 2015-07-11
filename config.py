@@ -12,9 +12,6 @@ class TestConfig(BaseConfig):
     WTF_CSRF_ENABLED = False
     # use sqlite in memory
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
-    # :memory: doesn't work on travis even if I set testing.db in settings.
-    # must set testing.db here for travis to pass
-    # SQLALCHEMY_DATABASE_URI = 'sqlite:///testing.db'
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
