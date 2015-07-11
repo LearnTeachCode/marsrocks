@@ -3,8 +3,8 @@ from flask import flash, redirect, render_template, request, \
 from flask.ext.login import login_user, login_required, logout_user
 
 from .forms import LoginForm, RegisterForm
-from project import db
-from project.models import User, bcrypt
+from project import db, bcrypt
+from project.models import User
 
 # define blueprints
 users_blueprint = Blueprint(
