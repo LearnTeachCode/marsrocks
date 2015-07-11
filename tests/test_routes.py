@@ -4,7 +4,7 @@ from flask import url_for
 from base import BaseTestCase
 
 # these tests check that we get a 200 response code for all the routes
-class BaseTest(BaseTestCase):
+class TestRoutes(BaseTestCase):
     def test_index(self):
         response = self.client.get(url_for('home.index'))
         self.assertEqual(response.status_code, 200)

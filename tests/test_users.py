@@ -19,7 +19,7 @@ class TestUserLogin(BaseTestCase):
                 )
             self.assertEqual(response.status_code, 200)
             user = User.query.filter_by(username='blahblah').first()
-            self.assertTrue(str(user) == '<name - blahblah>')
+            self.assertTrue(str(user) == '<user - blahblah>')
 
     # Ensure errors are thrown during an incorrect user registration
     def test_incorrect_user_registeration(self):
@@ -32,15 +32,15 @@ class TestUserLogin(BaseTestCase):
             self.assertIn(b'/register', request.url)
 
     # Ensure id is correct for the current/logged in user
-    # def test_get_by_id(self):
-    #     with self.client:
-    #         response = self.client.post(
-    #             url_for('users.login'),
-    #             data=dict(username="admin", password="password"),
-    #             follow_redirects=True
-    #             )
-    #         self.assertTrue(current_user.id == 1)
-    #         self.assertFalse(current_user.id == 20)
+    def test_get_by_id(self):
+        with self.client:
+            response = self.client.post(
+                url_for('users.login'),
+                data=dict(username="admin", password="password"),
+                follow_redirects=True
+                )
+            self.assertTrue(current_user.id == 1)
+            self.assertFalse(current_user.id == 20)
 
     # Ensure given password is correct after unhashing
     def test_check_password(self):
