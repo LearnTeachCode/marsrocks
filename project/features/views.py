@@ -8,4 +8,4 @@ features_blueprint = Blueprint(
 
 @features_blueprint.route('/features')
 def index():
-    return render_template('index.html')
+    return render_template('features.html')

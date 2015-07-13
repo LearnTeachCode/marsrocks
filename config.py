@@ -1,5 +1,3 @@
-import os
-
 #default config
 class BaseConfig(object):
     DEBUG = False
@@ -16,7 +14,6 @@ class TestConfig(BaseConfig):
 
 class DevelopmentConfig(BaseConfig):
     DEBUG = True
-    print 'fsdasfd'
     # devs can customize the database by setting the environment variable
 
 class ProductionConfig(BaseConfig):
