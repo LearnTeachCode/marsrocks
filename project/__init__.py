@@ -30,6 +30,7 @@ from project.home.views import home_blueprint
 from project.about.views import about_blueprint
 from project.stats.views import stats_blueprint
 from project.classify.views import classify_blueprint
+from project.features.views import features_blueprint
 
 # register our blueprints with the app.
 app.register_blueprint(users_blueprint)
@@ -37,6 +38,7 @@ app.register_blueprint(home_blueprint)
 app.register_blueprint(about_blueprint)
 app.register_blueprint(stats_blueprint)
 app.register_blueprint(classify_blueprint)
+app.register_blueprint(features_blueprint)
 
 # register variables used in base template
 app.context_processor(get_current_year)
