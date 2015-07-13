@@ -4,6 +4,7 @@ from flask import Flask
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.bcrypt import Bcrypt
 from flask.ext.login import LoginManager
+from shared.global_variables import get_current_year
 
 # create (instantiate) the application object
 app = Flask(__name__)
@@ -36,6 +37,9 @@ app.register_blueprint(home_blueprint)
 app.register_blueprint(about_blueprint)
 app.register_blueprint(stats_blueprint)
 app.register_blueprint(classify_blueprint)
+
+# register variables used in base template
+app.context_processor(get_current_year)
 
 
 from models import User
