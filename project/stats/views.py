@@ -1,5 +1,6 @@
+import json
 from flask import render_template, Blueprint
-from project.models import  Feature
+from project.stats.process_classifications import get_data
 
 # define blueprints
 stats_blueprint = Blueprint(
@@ -9,10 +10,7 @@ stats_blueprint = Blueprint(
 
 @stats_blueprint.route('/stats')
 def index():
+    #Justin, you can access the json through the variable json_data
+    json_data = json.dumps(get_data())
 
-    features = Feature.query.all()
-    json_data=[feature.serialize for feature in features]
-    print json_data
-
-
-    return render_template('stats.html')
+    return render_template('stats.html', json_data=json_data)
