@@ -20,6 +20,15 @@ class Photo(db.Model):
     def __repr__(self):
         return '<photo - {}>'.format(self.url)
 
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'url': self.url,
+            'imageid': self.imageid,
+            'created_at': self.created_at
+        }
+
 class Feature(db.Model):
     __tablename__ = 'features'
     id = db.Column(db.Integer, primary_key=True)
@@ -35,3 +44,12 @@ class Feature(db.Model):
 
     def __repr__(self):
         return '<feature - {}>'.format(self.name)
+
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'slug': self.slug,
+            'photo_url': self.photo_url
+        }

@@ -16,3 +16,12 @@ class Classification(db.Model):
 
     def __repr__(self):
         return '<classification: user {}, photo {}, feature {}>'.format(self.user_id, self.photo_id, self.feature_id)
+
+    @property
+    def serialize(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'photo_id': self.photo_id,
+            'feature_id': self.feature_id
+        }
