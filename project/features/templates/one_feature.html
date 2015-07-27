@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Photos</h1>
+<p>photos is an list of photo objects. Each photo has two keys: url and id.</p>
+<p>use for loop to iterate through all photos and display the image.</p>
+
+<hr>
+<h1>Demo</h1>
+<img src="{{photo.url}}">
+
+{% endblock %}
