@@ -2,14 +2,16 @@
 {% block content %}
 
 <h1>Features</h1>
+
+<h3>Instructions</h3>
+
 <p>features is an list of feature objects. each object has two keys: name, photo_url</p>
 <p>use for loop to iterate through all features, and display the name and photo for each feature.</p>
+<p>Clicking on the photo will take you to the photos page. Link for the photos page is like "/features/1", </p>
 
-<hr>
-<h3>Demo</h3>
-<div>
-  {{feature['name']}}<br>
-   <img src={{url_for('static', filename='images/'+feature['photo_url'])}}>
-</div>
+<div>{{features}}</div>
+
+<div>{{features[0].id}}, {{features[0].name}}, {{features[0].photo_url}}</div>
+
 
 {% endblock %}

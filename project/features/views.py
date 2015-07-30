@@ -22,4 +22,7 @@ def classifications(id):
     for classify in classifies:
         photos.append(classify.photo)
 
-    return render_template('one_feature.html', photos=photos, photo=photos[0])
+    # blah = {'name': 'a', 'id': 1}
+    blah = type(photos[0])
+
+    return render_template('one_feature.html', photos=photos, photo=blah)
