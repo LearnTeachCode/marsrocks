@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="photo-container">
-  <img src='/static/images/placeholder.jpg'>
+  <img src={{photo.url}}>
 </div>
 
 <div class="menu-container">
@@ -42,6 +42,8 @@
         {{ form.wheel_wear }}
         <label for="wheel_wear">{{ form.wheel_wear.description }}</label>
       </p>
+
+      <input type="hidden" id="photo_id" name="photo_id" value="{{photo.id}}">
       <input type="submit" value="Submit">
   </form>
 </div>
