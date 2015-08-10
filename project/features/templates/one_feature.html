@@ -1,16 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<h1>Photos</h1>
-
-<h3>Instructions</h3>
-<p>photos is an list of photo objects. Each photo object has two keys: url and id.</p>
-<p>use for loop to iterate through all photos and display the image.</p>
+<h1>{{feature.name}}</h1>
 
 
-<div>{{photos}}</div>
-
-<div>{{photos[0].url}}</div>
+{% for photo in photos %}
+  <div class="photo">
+    <img src="{{photo.url}}">
+  </div>
+{% endfor %}
 
 
 {% endblock %}
