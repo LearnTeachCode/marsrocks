@@ -6,42 +6,70 @@
   <title>Mars Rocks</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <h1>Mars Rocks</h1>
-    <nav>
-      <ul class="menu">
-        <li><a href="{{ url_for('home.index') }}">Home</a></li>
-        <li><a href="{{ url_for('about.index') }}">About</a></li>
-        <li><a href="{{ url_for('stats.index') }}">Stats</a></li>
-        <li><a href="{{ url_for('classify.index') }}">Classify</a></li>
-        <li><a href="{{ url_for('features.index') }}">Features</a></li>
-        <li><a href="{{ url_for('users.login') }}">Login</a></li>
-        <li><a href="{{ url_for('users.register') }}">Register</a></li>
-        <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
-        {% if  current_user.is_authenticated() %}
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container fluid">
+      <div class="navbar-header">
+        <a href="" class="navbar-brand">Mars Rocks</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" />
+        <span class="sr-only">Toggle Navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="{{ url_for('home.index') }}">Home</a></li>
+          <li><a href="{{ url_for('about.index') }}">About</a></li>
+          <li><a href="{{ url_for('stats.index') }}">Stats</a></li>
+          <li><a href="{{ url_for('classify.index') }}">Classify</a></li>
+          <li><a href="{{ url_for('features.index') }}">Features</a></li>
+          <li><a href="{{ url_for('users.login') }}">Login</a></li>
+          <li><a href="{{ url_for('users.register') }}">Register</a></li>
+          <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
+          {% if current_user.is_authenticated() %}
           <li>{{ current_user.username }}</li>
+          {% endif %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container contentContainer" id="topContainer">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1" id="topRow">
+
+        <!-- errors -->
+        {% if error %}
+        <p class="error">
+          <strong>Error:</strong> {{ error }}</p>
         {% endif %}
 
-      </ul>
-    </nav>
+        <!-- messages -->
+        {% for message in get_flashed_messages() %} {{ message }} {% endfor %}
+
+        <!-- content -->
+        {% block content %} {% endblock %}
+      </div>
     </div>
-  <div>
-    <!-- errors -->
-    {% if error %}
-      <p class="error"><strong>Error:</strong> {{ error }}</p>
-    {% endif %}
-
-    <!-- messages -->
-    {% for message in get_flashed_messages() %}
-      {{ message }}
-    {% endfor %}
-
-    {% block content %} {% endblock %}
   </div>
-  <div id="footer">Copyright {{ current_year }}</div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <script>
+    $(".contentContainer").css("min-height", $(window).height());
+  </script>
 </body>
 
 </html>

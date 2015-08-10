@@ -23,3 +23,45 @@ table{
   color: #8b1c62;
   text-decoration: none
 }
+
+.navbar-brand {
+  font-size: 2em;
+}
+
+body {
+  background: green;
+  height: 100%;
+}
+
+#topContainer {
+  background-image:url("http://blogs-images.forbes.com/ericmack/files/2015/01/Mars-Nasa-1.jpg");
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+}
+
+#topRow {
+  margin-top: 100px;
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.photo {
+  margin: 10px;
+}
+
+.photo img {
+  width: 300px;
+}
+
+.feature {
+  margin: 10px;
+}
+
+
+.feature img {
+  width: 400px;
+}
+
+
