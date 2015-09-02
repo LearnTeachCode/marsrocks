@@ -1,7 +1,12 @@
-#this program grabs image urls, and their accompanying imageid and timestamp, from the NASA API and copies them into .txt files as a list of dictionaries in python.
-import sys
+#Grab URLs from NASA API with accompanying data (URL, imageid, timestamp) and populate into db
 import urllib2
 import json
+
+from project import db
+from project.models import Photo
+
+db.drop_all()
+db.create_all()
 
 #grabbing top-level urls
 mainpage=urllib2.urlopen('http://json.jpl.nasa.gov/data.json')
@@ -12,7 +17,6 @@ allrovers=mainpagejson.keys()
 for rover in allrovers:
         imgurl=mainpagejson[rover]['image_manifest']
         file = open(rover+".txt",'a')
-        file.write("[")
 
 #grabbing second-level urls
         secondpage=urllib2.urlopen(imgurl)
@@ -48,23 +52,13 @@ for rover in allrovers:
                                     timestamp=jsonurl[tlk][tlkindex]['images'][imgindex]['time']['creation_timestamp_utc']
                                 else:
                                     timestamp="-"
-                                data={}
-                                data['url']=url
-                                data['imageid']=imgid
-                                data['created_at']=timestamp
-                                datadump = json.dumps(data)
-                                print datadump
-                                file.write(datadump+',')
-                                # listentries.append(data)
+                                data=[url,imgid,timestamp]
+                                print data
+                                #inserting data into db
+                                db.session.add(Photo(data))
                                 imgindex=imgindex+1
                             tlkindex=tlkindex+1
                             imgindex=0
                         tlkindex=0
             solindex=solindex+1
-#printing list of dictionary entries into text file
-        # for item in listentries:
-        #     print>>file, item
-        file.write("]")
-        file.close()
-
-
+db.session.commit()
