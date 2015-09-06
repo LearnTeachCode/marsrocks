@@ -45,7 +45,8 @@ def random_available_image():
         offset = 0
     # select one photo that has not been visited
     sql = 'select id from photos where id not in (select photo_id from visited_photos) limit 1 offset ' + str(offset)
-    return db.engine.execute(sql).first()
+    row = db.engine.execute(sql).first()
+    return Photo.query.filter_by(id=row.id).first()
 
 def classify_photo(request):
     # fields: csrf_token, selected features, hidden photo_id.
