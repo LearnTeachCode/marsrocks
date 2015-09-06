@@ -25,7 +25,7 @@ for rover in allrovers:
     solindex=0
     sollen=len(secondjson['sols'])
     # while(solindex<sollen):
-    while(solindex<50):
+    while(solindex<10):
         solurl=secondjson['sols'][solindex]['url']
 
 #grabbing third-level urls
