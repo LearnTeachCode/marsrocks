@@ -3,11 +3,11 @@
 
 <h1>Features</h1>
 
-{%  for feature in features %}
+{%  for feature_count in features %}
 <div class="feature">
-  <h2>{{feature.name}}</h2>
-  <a href="{{url_for('features.classifications', id=feature.id)}}">
-    <img src={{url_for('static', filename='images/'+feature['photo_url'])}}>
+  <h2>{{feature_count.feature.name}} ({{feature_count.count}})</h2>
+  <a href="{{url_for('features.classifications', id=feature_count.feature.id)}}">
+    <img src={{url_for('static', filename='images/'+feature_count.feature['photo_url'])}}>
   </a>
 </div>
 {%  endfor %}
