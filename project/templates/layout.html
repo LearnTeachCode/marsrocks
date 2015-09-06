@@ -39,7 +39,7 @@
 
           {% if current_user.is_authenticated() %}
           <li><a href="{{ url_for('users.logout') }}">Logout</a></li>
-          <li>{{ current_user.username }}</li>
+          <li class="navbar-text">{{ current_user.username }}</li>
           {% endif %}
         </ul>
       </div>
