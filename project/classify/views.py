@@ -80,7 +80,8 @@ def index():
     if current_user.is_authenticated():
         template = 'classify.html'
         # mark current photo visited so the image won't be shown again
-        mark_photo_visited(random_img)
+        if available_photos_count() > 0:
+            mark_photo_visited(random_img)
     else:
         template = 'classify_static.html'
 
