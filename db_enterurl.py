@@ -8,9 +8,6 @@ from project import db
 from project.models import Photo
 
 
-db.drop_all()
-db.create_all()
-
 #grabbing top-level urls
 mainpage=urllib2.urlopen('http://json.jpl.nasa.gov/data.json')
 mainpagefile=mainpage.read()
