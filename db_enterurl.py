@@ -65,4 +65,5 @@ for rover in allrovers:
                             imgindex=0
                         tlkindex=0
             solindex=solindex+1
+#committing             
 db.session.commit()
