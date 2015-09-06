@@ -18,7 +18,9 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     # devs can customize the database by setting the environment variable
     SQLALCHEMY_DATABASE_URI = 'sqlite:///marsrocks.db'
+    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 class ProductionConfig(BaseConfig):
     DEBUG = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///marsrocks.db'
+    # SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
