@@ -40,10 +40,11 @@ def random_available_image():
         offset = 0
     # else delete all visited photos for the current user and show first image
     else:
-        clear_visited_photos()
+        if current_user.is_authenticated():
+            clear_visited_photos()
         offset = 0
     # select one photo that has not been visited
-    sql = 'select id from photos where id not in (select photo_id from visited_photos) offset ' + str(offset)
+    sql = 'select id from photos where id not in (select photo_id from visited_photos) limit 1 offset ' + str(offset)
     return db.engine.execute(sql).first()
 
 def classify_photo(request):
