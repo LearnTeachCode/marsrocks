@@ -89,6 +89,7 @@ def index():
     if request.method == 'POST' and form.validate():
         # request.form contains a dictionary of all the fields in the form
         classify_photo(request)
+        return redirect(url_for('classify.index'))
 
     # render the template
     return render_template(template,
