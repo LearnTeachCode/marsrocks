@@ -9,7 +9,7 @@ class Photo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String, nullable=False)
     imageid = db.Column(db.String, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False)
+    created_at = db.Column(db.DateTime)
     classifications = relationship("Classification", backref='photo', lazy='dynamic')
 
     def __init__(self, url, imageid, created_at):
