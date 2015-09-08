@@ -1,8 +1,22 @@
 from sqlalchemy.orm import relationship
+from sqlalchemy import ForeignKey
 
 from project import db
 from project.users.models import User
 from project.classify.models import Classification
+
+class VisitedPhoto(db.Model):
+    __tablename__ = 'visited_photos'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, ForeignKey('users.id'))
+    photo_id = db.Column(db.Integer, ForeignKey('photos.id'))
+
+    def __init__(self, user_id, photo_id):
+        self.user_id = user_id
+        self.photo_id = photo_id
+
+    def __repr__(self):
+        return '<visited_photos: user {}, photo {}>'.format(self.user_id, self.photo_id)
 
 class Photo(db.Model):
     __tablename__ = 'photos'

@@ -9,11 +9,15 @@ features_blueprint = Blueprint(
     template_folder='templates'
 )
 
+
 @features_blueprint.route('/features')
 def index():
     features = db.session.query(Feature).all()
-
-    return render_template('features.html', features=features)
+    features_count = []
+    for feature in features:
+        count = Classification.query.filter_by(feature_id=feature.id).count()
+        features_count.append( {'feature': feature, 'count': count})
+    return render_template('features.html', features=features_count)
 
 @features_blueprint.route('/features/<id>')
 def classifications(id):
